@@ -711,6 +711,30 @@ body {
   font-weight: 700;
 }
 
+.tour-title {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .tour-title {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+.tour-title {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .tour-title {
+    text-align: left;
+  }
+}
+
 .tour-event-container {
   display: flex;
   width: 100%;
