@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block title %}Политика конфиденциальности{% endblock %} {% block content %}
+<div class="container mx-auto px-4 py-4">
+	<div class="max-w-4xl mx-auto">
+		<h1 class="text-3xl font-bold mb-8">Политика конфиденциальности</h1>
+
+		<div>
+			{% if site_info.privacy_policy %} {% for paragraph in site_info.get_privacy_policy_list %}
+			<p class="mb-4">{{ paragraph }}</p>
+			{% endfor %} {% else %}
+			<p>Мы используем cookies для улучшения работы сайта. Если вы не хотите, чтобы ваши данные обрабатывались, вы можете отключить cookies в настройках браузера.</p>
+			{% endif %}
+		</div>
+
+		<div class="mt-8">
+			<p>Настоящая политика является публичным документом и размещается по адресу: https://elemevent.ru/privacy.</p>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% if banners %}
+<section>
+	<div>
+		<div id="mainCarousel" class="relative cover-container">
+			<div class="carousel-inner relative">
+				{% for banner in banners %}
+				<div class="carousel-item {% if forloop.first %}block{% else %}hidden{% endif %}" data-index="{{ forloop.counter0 }}">
+					<a href="{{ banner.link }}" target="_blank">
+						<img src="{{ banner.cover.url }}" class="cover-image" alt="Баннер" />
+					</a>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+
+		{% if banners.count > 1 %}
+		<!-- Индикаторы слайдов -->
+		<div class="flex justify-center space-x-2 mt-4">
+			{% for banner in banners %}
+			<button type="button" data-carousel-target="{{ forloop.counter0 }}" class="carousel-indicator w-4 h-4 rounded-[4px] {% if forloop.first %}bg-primary{% else %}bg-muted{% endif %}"></button>
+			{% endfor %}
+		</div>
+		{% endif %}
+	</div>
+</section>
+{% endif %}

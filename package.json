@@ -1,0 +1,16 @@
+{
+	"name": "elem-event",
+	"version": "1.0.0",
+	"description": "ELEM EVENT",
+	"scripts": {
+		"prod": "tailwindcss -i ./static/css/input.css -o ./static/css/output.css --minify",
+		"dev": "tailwindcss -i ./static/css/input.css -o ./static/css/output.css --watch"
+	},
+	"dependencies": {
+		"postcss": "^8.4.35",
+		"tailwindcss": "^3.4.1"
+	},
+	"devDependencies": {
+		"postcss-import": "^16.1.0"
+	}
+}

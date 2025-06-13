@@ -1,0 +1,56 @@
+<div id="mobile-menu-overlay" class="fixed inset-0 bg-background/80 backdrop-blur-sm z-[60] hidden"></div>
+<div id="mobile-menu" class="fixed top-0 right-0 bottom-0 w-[280px] bg-background z-[70] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+	<div class="flex justify-end items-center p-4">
+		<button id="close-menu-btn" class="text-muted-foreground">
+			<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" /></svg>
+		</button>
+	</div>
+	<ul class="flex flex-col p-4">
+		<li class="py-2">
+			<a href="{% url 'index' %}" class="text-muted-foreground {% if request.path == '/' %}text-foreground{% endif %}">Главная</a>
+		</li>
+		<li class="py-2">
+			<a href="{% url 'index' %}#events" class="text-muted-foreground">Афиша</a>
+		</li>
+		{% if tours %}
+		<li class="py-2">
+			<a href="{% url 'index' %}#tours" class="text-muted-foreground">Туры</a>
+		</li>
+		{% endif %} {% if questions %}
+		<li class="py-2">
+			<a href="{% url 'index' %}#faq" class="text-muted-foreground">Ответы на вопросы</a>
+		</li>
+		{% endif %}
+		<li class="py-2">
+			<a href="{% url 'archive' %}" class="text-muted-foreground">Архив</a>
+		</li>
+		<li class="py-2">
+			<a href="#contacts" class="text-muted-foreground">Контакты</a>
+		</li>
+	</ul>
+	<div class="mt-auto p-4">
+		<div class="flex flex-row gap-2">
+			{% if site_info.vk_link %}
+			<a href="{{ site_info.vk_link }}" target="_blank" class="flex w-10 aspect-square items-center justify-center bg-foreground rounded-[8px] text-background">
+				<svg class="w-5 h-5" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M10.294 12.15C3.83661 12.15 0.153467 7.58919 0 0H3.2346C3.34085 5.57027 5.72543 7.92973 7.61425 8.41621V0H10.6601V4.80405C12.5253 4.5973 14.4847 2.40811 15.1458 0H18.1916C17.684 2.96757 15.559 5.15676 14.048 6.05676C15.559 6.78649 17.9792 8.69595 18.9 12.15H15.5472C14.8271 9.83919 13.0329 8.05135 10.6601 7.80811V12.15H10.294Z" fill="currentColor" />
+				</svg>
+			</a>
+			{% endif %} {% if site_info.telegram_link %}
+			<a href="{{ site_info.telegram_link }}" target="_blank" class="flex w-10 aspect-square items-center justify-center bg-foreground rounded-[8px] text-background">
+				<svg class="w-5 h-5" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M1.18207 6.13453C5.79781 4.12353 8.87569 2.79775 10.4157 2.1572C14.8128 0.328302 15.7265 0.0106025 16.322 0.000111854C16.453 -0.00219544 16.7458 0.0302651 16.9355 0.184196C17.0957 0.314172 17.1398 0.489751 17.1609 0.612982C17.182 0.736213 17.2082 1.01694 17.1874 1.23629C16.9491 3.73991 15.918 9.81555 15.3935 12.6197C15.1716 13.8062 14.7345 14.204 14.3115 14.2429C13.392 14.3275 12.6938 13.6353 11.8032 13.0515C10.4097 12.138 9.62243 11.5694 8.26975 10.678C6.70651 9.64785 7.7199 9.08165 8.61078 8.15634C8.84394 7.91418 12.8951 4.22929 12.9736 3.89501C12.9834 3.8532 12.9925 3.69737 12.8999 3.61508C12.8073 3.53279 12.6707 3.56093 12.5721 3.58331C12.4323 3.61503 10.2061 5.08647 5.89347 7.99761C5.26157 8.43152 4.68922 8.64294 4.17641 8.63186C3.61108 8.61965 2.5236 8.31221 1.71518 8.04943C0.723617 7.72711 -0.064458 7.5567 0.00416565 7.0093C0.0399091 6.72418 0.432543 6.43259 1.18207 6.13453Z" fill="currentColor" />
+				</svg>
+			</a>
+			{% endif %} {% if site_info.email %}
+
+			<a href="mailto:{{ site_info.email }}" target="_blank" class="flex w-10 aspect-square items-center justify-center bg-foreground rounded-[8px] text-background">
+				<svg class="w-5 h-5" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M1.8 13.5C1.305 13.5 0.88125 13.3348 0.52875 13.0043C0.17625 12.6738 0 12.2766 0 11.8125V1.6875C0 1.22344 0.17625 0.826172 0.52875 0.495703C0.88125 0.165234 1.305 0 1.8 0H16.2C16.695 0 17.1188 0.165234 17.4713 0.495703C17.8238 0.826172 18 1.22344 18 1.6875V11.8125C18 12.2766 17.8238 12.6738 17.4713 13.0043C17.1188 13.3348 16.695 13.5 16.2 13.5H1.8ZM9 7.59375L16.2 3.375V1.6875L9 5.90625L1.8 1.6875V3.375L9 7.59375Z" fill="currentColor" />
+				</svg>
+			</a>
+
+			{% endif %}
+		</div>
+	</div>
+</div>

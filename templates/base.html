@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{% block title %}ElemEvent{% endblock %}{% if site_info.company_name %} | {{ site_info.company_name }}{% endif %}</title>
+		<link rel="icon" type="image/png" href="/static/images/favicon/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="/static/images/favicon/favicon.svg" />
+		<link rel="shortcut icon" href="/static/images/favicon/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicon/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="ELEM EVENT" />
+		<link rel="manifest" href="/static/images/favicon/site.webmanifest" />
+		<meta name="theme-color" content="#09090B" />
+		<link rel="stylesheet" href="/static/css/output.css" />
+		{% block extra_css %}{% endblock %} {% block head_scripts %}{% endblock %}
+	</head>
+	<body class="flex flex-col min-h-screen">
+		{% include 'components/nav.html' %} {% include 'components/mobile-menu.html' %}
+		<main class="container mx-auto px-4 mt-24 mb-10 flex-grow">{% block content %}{% endblock %}</main>
+		{% include 'components/footer.html' %}
+		<script type="module" src="/static/js/scripts.js"></script>
+		{% block body_scripts %}{% endblock %}
+	</body>
+</html>

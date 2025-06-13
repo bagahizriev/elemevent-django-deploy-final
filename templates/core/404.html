@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block title %}{{ title }} | ElemEvent{% endblock %} {% block content %}
+<div class="flex flex-col items-center justify-center pt-16 pb-24 text-center">
+	<h1 class="text-6xl font-bold mb-6">404</h1>
+	<p class="text-2xl mb-8 text-muted-foreground">Страница не найдена</p>
+	<p class="max-w-lg mb-8 text-muted-foreground">К сожалению, запрашиваемая вами страница не существует или была перемещена.</p>
+	<div class="flex gap-4">
+		<a href="{% url 'index' %}" class="px-6 py-3 bg-foreground text-background rounded-md hover:bg-foreground/90 transition-colors"> Вернуться на главную </a>
+		{% if upcoming_events %}
+		<a href="{% url 'index' %}#events" class="px-6 py-3 bg-transparent border border-foreground text-foreground rounded-md hover:bg-foreground/10 transition-colors"> Перейти к афише </a>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}

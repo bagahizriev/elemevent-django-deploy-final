@@ -1,0 +1,203 @@
+[2025-05-14 22:12:31 +0400] [79005] [INFO] Starting gunicorn 23.0.0
+[2025-05-14 22:12:31 +0400] [79005] [INFO] Listening at: http://0.0.0.0:8000 (79005)
+[2025-05-14 22:12:31 +0400] [79005] [INFO] Using worker: sync
+[2025-05-14 22:12:31 +0400] [79015] [INFO] Booting worker with pid: 79015
+[2025-05-14 22:12:31 +0400] [79016] [INFO] Booting worker with pid: 79016
+[2025-05-14 22:12:31 +0400] [79017] [INFO] Booting worker with pid: 79017
+[2025-05-14 22:13:46 +0400] [79005] [INFO] Handling signal: term
+[2025-05-14 21:13:46 +0300] [79016] [INFO] Worker exiting (pid: 79016)
+[2025-05-14 21:13:46 +0300] [79015] [INFO] Worker exiting (pid: 79015)
+[2025-05-14 21:13:46 +0300] [79017] [INFO] Worker exiting (pid: 79017)
+[2025-05-14 22:13:46 +0400] [79005] [INFO] Shutting down: Master
+[2025-05-14 22:13:47 +0400] [79117] [INFO] Starting gunicorn 23.0.0
+[2025-05-14 22:13:47 +0400] [79117] [INFO] Listening at: http://0.0.0.0:8000 (79117)
+[2025-05-14 22:13:47 +0400] [79117] [INFO] Using worker: sync
+[2025-05-14 22:13:47 +0400] [79118] [INFO] Booting worker with pid: 79118
+[2025-05-14 22:13:47 +0400] [79119] [INFO] Booting worker with pid: 79119
+[2025-05-14 22:13:47 +0400] [79120] [INFO] Booting worker with pid: 79120
+[2025-05-14 22:14:13 +0400] [79166] [INFO] Starting gunicorn 23.0.0
+[2025-05-14 22:14:13 +0400] [79166] [INFO] Listening at: http://0.0.0.0:8000 (79166)
+[2025-05-14 22:14:13 +0400] [79166] [INFO] Using worker: sync
+[2025-05-14 22:14:13 +0400] [79167] [INFO] Booting worker with pid: 79167
+[2025-05-14 22:14:13 +0400] [79168] [INFO] Booting worker with pid: 79168
+[2025-05-14 22:14:13 +0400] [79169] [INFO] Booting worker with pid: 79169
+[2025-05-15 02:31:50 +0400] [79166] [CRITICAL] WORKER TIMEOUT (pid:79168)
+[2025-05-15 01:31:50 +0300] [79168] [ERROR] Error handling request (no URI read)
+Traceback (most recent call last):
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 133, in handle
+    req = next(parser)
+          ^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/parser.py", line 41, in __next__
+    self.mesg = self.mesg_class(self.cfg, self.unreader, self.source_addr, self.req_count)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/message.py", line 259, in __init__
+    super().__init__(cfg, unreader, peer_addr)
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/message.py", line 60, in __init__
+    unused = self.parse(self.unreader)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/message.py", line 271, in parse
+    self.get_data(unreader, buf, stop=True)
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/message.py", line 262, in get_data
+    data = unreader.read()
+           ^^^^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/unreader.py", line 36, in read
+    d = self.chunk()
+        ^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/unreader.py", line 63, in chunk
+    return self.sock.recv(self.mxchunk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+    sys.exit(1)
+SystemExit: 1
+[2025-05-15 01:31:50 +0300] [79168] [INFO] Worker exiting (pid: 79168)
+[2025-05-15 02:31:50 +0400] [83596] [INFO] Booting worker with pid: 83596
+Not Found: /443
+[2025-05-16 03:42:25 +0300] [79167] [WARNING] Invalid request from ip=167.94.138.126: Invalid HTTP Version: (2, 0)
+Not Found: /443
+[2025-05-16 14:57:43 +0400] [79166] [CRITICAL] WORKER TIMEOUT (pid:83596)
+[2025-05-16 13:57:43 +0300] [83596] [ERROR] Error handling request (no URI read)
+Traceback (most recent call last):
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 133, in handle
+    req = next(parser)
+          ^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/parser.py", line 41, in __next__
+    self.mesg = self.mesg_class(self.cfg, self.unreader, self.source_addr, self.req_count)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/message.py", line 259, in __init__
+    super().__init__(cfg, unreader, peer_addr)
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/message.py", line 60, in __init__
+    unused = self.parse(self.unreader)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/message.py", line 271, in parse
+    self.get_data(unreader, buf, stop=True)
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/message.py", line 262, in get_data
+    data = unreader.read()
+           ^^^^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/unreader.py", line 36, in read
+    d = self.chunk()
+        ^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/unreader.py", line 63, in chunk
+    return self.sock.recv(self.mxchunk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+    sys.exit(1)
+SystemExit: 1
+[2025-05-16 13:57:43 +0300] [83596] [INFO] Worker exiting (pid: 83596)
+[2025-05-16 14:57:43 +0400] [99858] [INFO] Booting worker with pid: 99858
+[2025-05-17 16:46:02 +0400] [79166] [CRITICAL] WORKER TIMEOUT (pid:79167)
+[2025-05-17 15:46:02 +0300] [79167] [ERROR] Error handling request (no URI read)
+Traceback (most recent call last):
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 133, in handle
+    req = next(parser)
+          ^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/parser.py", line 41, in __next__
+    self.mesg = self.mesg_class(self.cfg, self.unreader, self.source_addr, self.req_count)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/message.py", line 259, in __init__
+    super().__init__(cfg, unreader, peer_addr)
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/message.py", line 60, in __init__
+    unused = self.parse(self.unreader)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/message.py", line 274, in parse
+    line, rbuf = self.read_line(unreader, buf, self.limit_request_line)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/message.py", line 326, in read_line
+    self.get_data(unreader, buf)
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/message.py", line 262, in get_data
+    data = unreader.read()
+           ^^^^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/unreader.py", line 36, in read
+    d = self.chunk()
+        ^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/unreader.py", line 63, in chunk
+    return self.sock.recv(self.mxchunk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+    sys.exit(1)
+SystemExit: 1
+[2025-05-17 15:46:02 +0300] [79167] [INFO] Worker exiting (pid: 79167)
+[2025-05-17 16:46:02 +0400] [4399] [INFO] Booting worker with pid: 4399
+[2025-05-17 18:52:18 +0300] [4399] [WARNING] Invalid request from ip=167.94.138.46: Invalid HTTP Version: (2, 0)
+Not Found: /favicon.ico
+Not Found: /login
+Not Found: /Viasat_Hockey/index.m3u8
+Not Found: /Viasat_Hockey/index.m3u8
+[2025-05-18 00:44:36 +0300] [79169] [WARNING] Invalid request from ip=212.192.158.175: Invalid HTTP request line: 'stats'
+[2025-05-18 01:07:44 +0300] [4399] [WARNING] Invalid request from ip=8.219.140.241: Invalid HTTP request line: ''
+Not Found: /login
+[2025-05-18 11:29:07 +0400] [79166] [CRITICAL] WORKER TIMEOUT (pid:99858)
+[2025-05-18 10:29:07 +0300] [99858] [ERROR] Error handling request (no URI read)
+Traceback (most recent call last):
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 133, in handle
+    req = next(parser)
+          ^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/parser.py", line 41, in __next__
+    self.mesg = self.mesg_class(self.cfg, self.unreader, self.source_addr, self.req_count)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/message.py", line 259, in __init__
+    super().__init__(cfg, unreader, peer_addr)
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/message.py", line 60, in __init__
+    unused = self.parse(self.unreader)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/message.py", line 274, in parse
+    line, rbuf = self.read_line(unreader, buf, self.limit_request_line)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/message.py", line 326, in read_line
+    self.get_data(unreader, buf)
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/message.py", line 262, in get_data
+    data = unreader.read()
+           ^^^^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/unreader.py", line 36, in read
+    d = self.chunk()
+        ^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/unreader.py", line 63, in chunk
+    return self.sock.recv(self.mxchunk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+    sys.exit(1)
+SystemExit: 1
+[2025-05-18 10:29:07 +0300] [99858] [INFO] Worker exiting (pid: 99858)
+[2025-05-18 11:29:07 +0400] [15944] [INFO] Booting worker with pid: 15944
+[2025-05-18 11:29:17 +0400] [79166] [CRITICAL] WORKER TIMEOUT (pid:79169)
+[2025-05-18 10:29:17 +0300] [79169] [ERROR] Error handling request (no URI read)
+Traceback (most recent call last):
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 133, in handle
+    req = next(parser)
+          ^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/parser.py", line 41, in __next__
+    self.mesg = self.mesg_class(self.cfg, self.unreader, self.source_addr, self.req_count)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/message.py", line 259, in __init__
+    super().__init__(cfg, unreader, peer_addr)
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/message.py", line 60, in __init__
+    unused = self.parse(self.unreader)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/message.py", line 274, in parse
+    line, rbuf = self.read_line(unreader, buf, self.limit_request_line)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/message.py", line 326, in read_line
+    self.get_data(unreader, buf)
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/message.py", line 262, in get_data
+    data = unreader.read()
+           ^^^^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/unreader.py", line 36, in read
+    d = self.chunk()
+        ^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/http/unreader.py", line 63, in chunk
+    return self.sock.recv(self.mxchunk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bagahizriev/Данные/Программирование/Иное/elemevent-django-deploy/venv/lib/python3.11/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+    sys.exit(1)
+SystemExit: 1
+[2025-05-18 10:29:17 +0300] [79169] [INFO] Worker exiting (pid: 79169)
+[2025-05-18 11:29:17 +0400] [15946] [INFO] Booting worker with pid: 15946
+Not Found: /favicon.ico
+[2025-05-18 21:56:23 +0300] [15944] [WARNING] Invalid request from ip=66.132.153.49: Invalid HTTP Version: (2, 0)
+Not Found: /favicon.ico
+[2025-05-18 22:50:15 +0300] [15944] [WARNING] Invalid request from ip=85.142.100.103: Invalid HTTP request line: ''
+Not Found: /login
+[2025-05-22 07:55:57 +0400] [79166] [INFO] Handling signal: term
+[2025-05-22 06:55:57 +0300] [15944] [INFO] Worker exiting (pid: 15944)
+[2025-05-22 06:55:57 +0300] [4399] [INFO] Worker exiting (pid: 4399)
+[2025-05-22 06:55:57 +0300] [15946] [INFO] Worker exiting (pid: 15946)
+[2025-05-22 07:55:58 +0400] [79166] [INFO] Shutting down: Master

@@ -1,0 +1,16 @@
+{% load static %} {% if event.push and event.push.is_active %}
+<div id="eventPush" class="fixed bottom-4 right-4 md:max-w-md max-w-80 flex gap-4 bg-primary rounded-lg shadow-2xl p-4 z-50" style="display: none">
+	<div class="text-background push-content">{{ event.push.content|safe }}</div>
+	<button class="text-muted-foreground hover:text-muted-foreground/50 transition-all">
+		<svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" /></svg>
+	</button>
+</div>
+
+<script src="{% static 'js/event-push.js' %}"></script>
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		const eventPush = new EventPush('{{ event.id }}', '{{ event.push.content|escapejs }}')
+		eventPush.init()
+	})
+</script>
+{% endif %}

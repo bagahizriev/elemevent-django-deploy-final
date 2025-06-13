@@ -1,0 +1,33 @@
+{% extends 'base.html' %}{% block title %}Архив мероприятий{% endblock %} {% block content %}
+<div class="container mx-auto">
+	<h1 class="h1 mb-8">Архив мероприятий</h1>
+
+	{% if past_events %}
+	<div class="card-container">
+		{% for event in past_events %}
+		<div class="event-card">
+			<a href="{% url 'event_detail' event.slug %}">
+				<div class="event-card-image-container">
+					<img src="{{ event.poster.url }}" class="event-card-image" alt="{{ event.title }}" />
+				</div>
+			</a>
+			<div class="event-card-content">
+				<h5 class="event-card-title">{{ event.title }}</h5>
+				<p class="event-card-info">
+					<span class="event-card-info-text">{{ event.city }}</span>
+					<span class="event-card-info-text">•</span>
+					<span class="event-card-info-text">{{ event.date|date:"j E Y"|lower }}</span><br />
+					<span class="event-card-info-text">{{ event.venue }}</span>
+				</p>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	{% else %}
+	<div class="bg-card p-6 rounded-[16px] border border-border">
+		<h4 class="text-lg font-bold mb-2 text-foreground">Нет прошедших мероприятий</h4>
+		<p class="text-foreground">В архиве пока нет мероприятий.</p>
+	</div>
+	{% endif %}
+</div>
+{% endblock %}

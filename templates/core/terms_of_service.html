@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block title %}Пользовательское соглашение{% endblock %} {% block content %}
+<div class="container mx-auto px-4 py-4">
+	<div class="max-w-4xl mx-auto">
+		<h1 class="text-3xl font-bold mb-8">Пользовательское соглашение</h1>
+
+		<div>
+			{% if site_info.terms_of_service %} {% for paragraph in site_info.get_terms_of_service_list %}
+			<p class="mb-4">{{ paragraph }}</p>
+			{% endfor %} {% else %}
+			<p>Информация, представленная на данном веб-сайте, предназначена исключительно в информационных целях и не является публичной офертой.</p>
+			{% endif %}
+		</div>
+		<div class="mt-8">
+			<p>Настоящее соглашение является публичным документом и размещается по адресу: https://elemevent.ru/terms.</p>
+		</div>
+	</div>
+</div>
+{% endblock %}

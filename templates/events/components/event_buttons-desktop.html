@@ -1,0 +1,17 @@
+<div class="flex flex-row gap-2 hidden lg:flex">
+	{% if is_archive %}
+	<div class="event-status">Мероприятие состоялось</div>
+	{% elif is_stopped %}
+	<div class="event-status">Продажа билетов временно приостановлена</div>
+	{% elif is_cancelled %}
+	<div class="event-status">Мероприятие отменено</div>
+	{% else %} {% if event.vk_link %}
+	<a class="btn btn-outline w-full" href="{{ event.vk_link }}" target="_blank"> Встреча ВК </a>
+	{% endif %} {% if event.ticket_system == 'DIRECT' and event.ticket_link %}
+	<a class="btn btn-primary w-full" href="{{ event.ticket_link }}">Купить билеты</a>
+	{% elif event.ticket_system == 'TICKETSCLOUD' and event.ticketscloud_event_id and event.ticketscloud_token %}
+	<a class="btn btn-primary w-full" href="#ticketscloud:event={{ event.ticketscloud_event_id }}&token={{ event.ticketscloud_token }}">Купить билеты</a>
+	{% elif event.ticket_system == 'RADARIO' and event.radario_key %}
+	<a class="knopka btn btn-primary w-full" href="#event/{{ event.radario_key }}">Купить билеты</a>
+	{% endif %} {% endif %}
+</div>

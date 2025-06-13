@@ -1,0 +1,69 @@
+{% if event.advertising and event.advertising.is_active %}
+<!-- Иконка троеточия и контекстное меню -->
+<div class="absolute top-2 right-2 md:top-4 md:right-4 z-10">
+	<div class="flex items-center gap-1">
+		<span class="text-xs font-medium text-white/90 bg-black/30 px-4 py-1 rounded-full backdrop-blur-sm">Реклама</span>
+		<button onclick="toggleAdMenu(event)" class="p-2 bg-black/30 rounded-full text-foreground hover:text-foreground/80 transition-colors">
+			<svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" /></svg>
+		</button>
+	</div>
+
+	<!-- Контекстное меню -->
+	<div id="adMenu" class="hidden fixed mt-2 w-72 bg-primary-foreground rounded-lg shadow-lg p-4 text-sm z-[9999]">
+		<div class="space-y-2">
+			<div>
+				<span class="text-muted-foreground">Рекламодатель:</span>
+				<span class="font-semibold">{{ event.advertising.advertiser_name }}</span>
+			</div>
+			<div>
+				<span class="text-muted-foreground">ИНН:</span>
+				<span class="font-semibold">{{ event.advertising.advertiser_inn }}</span>
+			</div>
+			{% if event.advertising.advertiser_ogrn %}
+			<div>
+				<span class="text-muted-foreground">ОГРН:</span>
+				<span class="font-semibold">{{ event.advertising.advertiser_ogrn }}</span>
+			</div>
+			{% endif %}
+			<div>
+				<span class="text-muted-foreground">ERID:</span>
+				<span class="font-semibold">{{ event.advertising.token }}</span>
+			</div>
+			{% if event.advertising.additional_info %}
+			<div>
+				<span class="font-semibold">{{ event.advertising.additional_info }}</span>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+<script>
+	function toggleAdMenu(event) {
+		event.stopPropagation()
+		const menu = document.getElementById('adMenu')
+		const button = event.currentTarget
+		const buttonRect = button.getBoundingClientRect()
+
+		menu.classList.toggle('hidden')
+
+		if (!menu.classList.contains('hidden')) {
+			// Позиционируем меню относительно кнопки
+			menu.style.top = `${buttonRect.bottom + 8}px`
+			menu.style.left = `${Math.min(buttonRect.left, window.innerWidth - menu.offsetWidth)}px`
+		}
+
+		// Закрываем меню при клике вне его
+		const closeMenu = e => {
+			if (!menu.contains(e.target) && !event.target.contains(e.target)) {
+				menu.classList.add('hidden')
+				document.removeEventListener('click', closeMenu)
+			}
+		}
+
+		if (!menu.classList.contains('hidden')) {
+			document.addEventListener('click', closeMenu)
+		}
+	}
+</script>
+{% endif %}

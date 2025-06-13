@@ -1,0 +1,58 @@
+<section id="events-section">
+	{% if upcoming_events %}
+	<div class="flex flex-col gap-4 md:flex-row md:justify-between md:items-center mb-8">
+		<h2 class="text-2xl font-bold md:text-3xl" id="events">Афиша мероприятий</h2>
+		<div id="citySelector" class="relative">
+			<button type="button" class="btn btn-outline btn-with-icon flex items-center gap-2" aria-haspopup="true" aria-expanded="false">
+				<span id="selectedCity">Все города</span>
+				<svg class="transition-transform duration-300 ease-in-out" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+				</svg>
+			</button>
+
+			<div id="cityDropdown" class="absolute z-10 mt-2 w-fit min-w-48 md:right-0 origin-top rounded-[16px] bg-primary-foreground border border-border transition-all hidden">
+				<div class="p-4">
+					<input type="text" id="citySearch" placeholder="Поиск города..." class="w-full px-4 py-2 mb-2 bg-transparent border border-border rounded-[8px] focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition" />
+					<div class="max-h-48 overflow-y-auto py-1">
+						<button class="w-full text-left px-4 py-2 rounded-[8px] city-option text-nowrap transition lg:hover:bg-muted lg:hover:text-primary" data-city="all">Все города</button>
+						{% for event in upcoming_events %}
+						<button class="w-full text-left px-4 py-2 rounded-[8px] city-option text-nowrap transition lg:hover:bg-muted lg:hover:text-primary" data-city="{{ event.city.name }}">{{ event.city.name }}</button>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="card-container" id="events-container">
+		{% for event in upcoming_events %}
+		<div class="event-card" data-city="{{ event.city.name }}">
+			<a href="{% url 'event_detail' event.slug %}">
+				<div class="event-card-image-container">
+					<img src="{{ event.poster.url }}" class="event-card-image" alt="{{ event.title }}" />
+				</div>
+			</a>
+			<div class="event-card-content">
+				<h5 class="event-card-title">{{ event.title }}</h5>
+				<p class="event-card-info">
+					<span class="event-card-info-text">{{ event.city }}</span>
+					<span class="event-card-info-text">•</span>
+					<span class="event-card-info-text">{{ event.date|date:"j E Y"|lower }}</span><br />
+					<span class="event-card-info-text">{{ event.venue }}</span>
+				</p>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	{% else %}
+	<div class="bg-card p-8 rounded-[16px] border border-border text-center">
+		<h2 class="text-2xl font-bold mb-4">Мы готовим для вас мероприятия</h2>
+		<p class="text-muted-foreground">Скоро здесь появятся интересные события. Следите за обновлениями!</p>
+	</div>
+	{% endif %}
+
+	<div id="noEventsMessage" class="hidden bg-card p-6 rounded-[16px] border border-border mt-4">
+		<h4 class="text-lg font-bold mb-2 text-foreground">Нет мероприятий в выбранном городе</h4>
+		<p class="text-foreground">Попробуйте выбрать другой город или посмотреть все города.</p>
+	</div>
+</section>

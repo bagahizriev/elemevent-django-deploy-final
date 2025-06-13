@@ -1,0 +1,23 @@
+{% if questions %}
+<section aria-labelledby="faq-heading" id="faq">
+	<h2 class="h1 mb-6" id="faq-heading">Часто задаваемые вопросы</h2>
+
+	<div class="space-y-2">
+		{% for question in questions %}
+		<article class="rounded-[16px] bg-primary-foreground">
+			<div class="flex items-center">
+				<button class="flex w-full items-center justify-between p-4 text-left text-lg font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" id="faq-button-{{ question.id }}" aria-expanded="false" aria-controls="faq-content-{{ question.id }}">
+					<h3 class="text-lg font-medium">{{ question.title }}</h3>
+					<svg class="faq-arrow h-5 w-5 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+					</svg>
+				</button>
+			</div>
+			<div id="faq-content-{{ question.id }}" role="region" aria-labelledby="faq-button-{{ question.id }}" class="hidden border-t border-border p-4">
+				<div class="prose prose-invert max-w-none" style="white-space: pre-wrap">{{ question.content|safe }}</div>
+			</div>
+		</article>
+		{% endfor %}
+	</div>
+</section>
+{% endif %}

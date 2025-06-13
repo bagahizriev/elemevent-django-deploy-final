@@ -1,0 +1,19 @@
+{% if past_tour_events %}
+<div class="flex flex-col space-y-4">
+	<h2 class="h2 opacity-50 text-center lg:text-left">Прошедшие мероприятия</h2>
+	{% for event in past_tour_events %}
+	<div class="tour-event-container tour-event-container--past">
+		<div class="tour-event-info">
+			<div class="tour-event-main-info">
+				<h2 class="tour-event-city">{{ event.city }}</h2>
+				<h2 class="tour-event-date">{{ event.date|date:"d E Y" }}</h2>
+			</div>
+			<h2 class="tour-event-place">{{ event.venue }}</h2>
+		</div>
+		<div class="tour-event-buttons">
+			<a href="{% url 'event_detail' event.slug %}" class="btn btn-outline tour-event-button">Подробнее</a>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endif %}

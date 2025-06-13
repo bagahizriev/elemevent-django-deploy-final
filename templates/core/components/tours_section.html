@@ -1,0 +1,23 @@
+{% if tours %}
+<section>
+	<h2 class="h1 mb-8" id="tours">Туры</h2>
+
+	<div class="card-container" id="tours-container">
+		{% for tour in tours %}
+		<div class="tour-card" data-cities="{% for event in tour.events.all %}{{ event.city.name }},{% endfor %}">
+			<a href="{% url 'tour_detail' tour.slug %}">
+				<div class="tour-card">
+					<div class="tour-card-image-container">
+						<img src="{{ tour.poster.url }}" class="tour-card-image" alt="{{ tour.title }}" />
+					</div>
+					<div class="tour-card-overlay"></div>
+					<div class="tour-card-content">
+						<h5 class="tour-card-title">{{ tour.title }}</h5>
+					</div>
+				</div>
+			</a>
+		</div>
+		{% endfor %}
+	</div>
+</section>
+{% endif %}
