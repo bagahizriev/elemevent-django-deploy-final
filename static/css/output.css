@@ -790,49 +790,37 @@ body {
   }
 }
 
-.tour-event-place {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-weight: 700;
-}
-
-@media (min-width: 768px) {
-  .tour-event-place {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-  }
-}
-
 .tour-event-city {
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
   font-weight: 700;
 }
 
 @media (min-width: 768px) {
   .tour-event-city {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
+}
+
+.tour-event-place {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  color: hsl(var(--muted-foreground));
 }
 
 .tour-event-date {
   font-size: 1rem;
   line-height: 1.5rem;
   font-weight: 700;
-}
-
-@media (min-width: 768px) {
-  .tour-event-date {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-  }
+  color: hsl(var(--muted-foreground));
 }
 
 .tour-event-buttons {
   display: flex;
   width: auto;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
@@ -841,7 +829,6 @@ body {
 @media (min-width: 1024px) {
   .tour-event-buttons {
     width: 33.333333%;
-    flex-direction: row;
     align-items: flex-end;
     justify-content: flex-end;
   }
@@ -1609,6 +1596,10 @@ body {
   gap: 2rem;
 }
 
+.gap-3 {
+  gap: 0.75rem;
+}
+
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
@@ -2215,6 +2206,10 @@ body {
 @media (min-width: 1024px) {
   .lg\:col-span-2 {
     grid-column: span 2 / span 2;
+  }
+
+  .lg\:block {
+    display: block;
   }
 
   .lg\:flex {

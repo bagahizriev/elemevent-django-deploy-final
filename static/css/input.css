@@ -87,20 +87,20 @@
 		@apply flex flex-col lg:w-[300px] gap-2 lg:text-left;
 	}
 
-	.tour-event-place {
-		@apply h3;
+	.tour-event-city {
+		@apply h2;
 	}
 
-	.tour-event-city {
-		@apply h3;
+	.tour-event-place {
+		@apply text-base text-muted-foreground font-bold;
 	}
 
 	.tour-event-date {
-		@apply h3;
+		@apply text-base text-muted-foreground font-bold;
 	}
 
 	.tour-event-buttons {
-		@apply flex flex-col lg:flex-row gap-2 w-auto lg:w-1/3 justify-center lg:justify-end items-center lg:items-end;
+		@apply flex flex-row gap-2 w-auto lg:w-1/3 justify-center lg:justify-end items-center lg:items-end;
 	}
 
 	.tour-event-button {
