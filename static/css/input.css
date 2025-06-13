@@ -63,6 +63,13 @@
 	.event-weekday {
 		@apply text-sm text-muted-foreground;
 	}
+
+	/* Туры */
+
+	.tour-event-container {
+		@apply flex items-center align-middle border-b border-border py-6 gap-6 flex-col justify-between w-full lg:flex-row;
+	}
+
 	.tour-event-title {
 		@apply text-xl font-bold;
 	}
@@ -71,20 +78,12 @@
 		@apply h1 mb-8 text-center lg:text-left;
 	}
 
-	.tour-event-container {
-		@apply flex items-center align-middle border-b border-border py-6 gap-4 lg:gap-0 flex-col justify-between text-center w-full lg:flex-row;
-	}
-
 	.tour-event-container--past {
 		@apply opacity-50;
 	}
 
 	.tour-event-info {
-		@apply flex items-center align-middle flex-col w-full lg:w-1/2 lg:flex-row gap-4;
-	}
-
-	.tour-event-main-info {
-		@apply flex flex-col lg:w-[300px] gap-2 lg:text-left;
+		@apply flex flex-col w-full gap-4 text-center lg:text-left;
 	}
 
 	.tour-event-city {
@@ -110,6 +109,8 @@
 	.tour-event-empty-card {
 		@apply bg-none p-6 rounded-[16px] border border-border text-foreground;
 	}
+
+	/* Другое */
 
 	.card-container {
 		@apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
