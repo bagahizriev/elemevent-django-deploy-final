@@ -23,7 +23,7 @@ from core.views import custom_404
 
 # Маршруты приложений
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('z134sLtt652Ru/', admin.site.urls),
     path('', include('core.urls')),
     path('events/', include('events.urls')),
     path('tours/', include('tours.urls')),

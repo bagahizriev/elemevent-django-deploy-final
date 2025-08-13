@@ -3,3 +3,9 @@ node_modules/
 staticfiles/
 media/
 .env
+logs/
+backups/
+certbot/
+
+# Docker volumes и кэши
+staticfiles/

@@ -1,0 +1,62 @@
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+.env/
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Node modules (если используется)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Static files (собираются в контейнере)
+staticfiles/
+
+# Logs и backups
+logs/
+backups/
+
+# SSL сертификаты
+certbot/
+
+# Environment files
+.env
+.env.*
+
+# Media files (монтируются как volume)
+media/
